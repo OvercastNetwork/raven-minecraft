@@ -1,12 +1,14 @@
 package tc.oc.bungee.logging;
 
+import java.util.logging.Logger;
+
+import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
 import tc.oc.bungee.BungeeVersionInspector;
 import tc.oc.bungee.configuration.YamlConfigurationLoader;
 import tc.oc.minecraft.logging.BetterRaven;
 import tc.oc.minecraft.logging.CoreRavenFactory;
 import tc.oc.minecraft.logging.RavenConfiguration;
-import tc.oc.minecraft.logging.RavenUtils;
 
 public class RavenPlugin extends Plugin {
     private BetterRaven raven;
@@ -25,7 +27,8 @@ public class RavenPlugin extends Plugin {
     }
 
     private void installRaven() {
-        raven.listen(RavenUtils.getRootLogger(getLogger()));
+        raven.listen(Logger.getLogger(""));
+        raven.listen(ProxyServer.getInstance().getLogger()); // Main Bungee logger does not use parent handlers
     }
 
     @Override

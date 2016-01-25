@@ -1,12 +1,13 @@
 package tc.oc.bukkit.logging;
 
+import java.util.logging.Logger;
+
 import net.kencochrane.raven.log4j2.SentryAppender;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.filter.ThresholdFilter;
 import org.bukkit.plugin.java.JavaPlugin;
 import tc.oc.minecraft.logging.BetterRaven;
 import tc.oc.minecraft.logging.RavenConfiguration;
-import tc.oc.minecraft.logging.RavenUtils;
 
 public class RavenPlugin extends JavaPlugin {
     private BetterRaven raven;
@@ -25,7 +26,7 @@ public class RavenPlugin extends JavaPlugin {
     }
 
     private void installBukkit() {
-        raven.listen(RavenUtils.getRootLogger(getLogger()));
+        raven.listen(Logger.getLogger(""));
     }
 
     private void installMojang() {

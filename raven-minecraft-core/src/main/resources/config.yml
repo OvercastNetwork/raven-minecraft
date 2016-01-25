@@ -1,0 +1,6 @@
+raven:
+  enabled: true
+  dsn: ...
+  # version-tags:
+  # - PluginA
+  # - PluginB

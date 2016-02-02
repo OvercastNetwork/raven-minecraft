@@ -4,10 +4,8 @@ import java.util.logging.Logger;
 
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
-import tc.oc.bungee.BungeeVersionInspector;
 import tc.oc.bungee.configuration.YamlConfigurationLoader;
 import tc.oc.minecraft.logging.BetterRaven;
-import tc.oc.minecraft.logging.CoreRavenFactory;
 import tc.oc.minecraft.logging.RavenConfiguration;
 
 public class RavenPlugin extends Plugin {
@@ -23,7 +21,7 @@ public class RavenPlugin extends Plugin {
     }
 
     private void buildRaven() {
-        raven = new CoreRavenFactory(new BungeeVersionInspector(getProxy())).createRavenInstance(getRavenConfiguration());
+        raven = new BungeeRavenFactory().createRavenInstance(getRavenConfiguration());
     }
 
     private void installRaven() {

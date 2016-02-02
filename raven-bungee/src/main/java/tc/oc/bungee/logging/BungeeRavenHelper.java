@@ -13,7 +13,7 @@ public class BungeeRavenHelper implements BetterRaven.Helper {
         if(logRecord.getParameters() != null) {
             for(Object param : logRecord.getParameters()) {
                 if(param instanceof InetSocketAddress) {
-                    eventBuilder.addExtra("Remote-IP", ((InetSocketAddress) param).getAddress().toString());
+                    eventBuilder.addTag("remote_ip", ((InetSocketAddress) param).getAddress().toString());
                 }
             }
         }

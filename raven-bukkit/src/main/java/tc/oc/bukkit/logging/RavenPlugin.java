@@ -1,6 +1,7 @@
 package tc.oc.bukkit.logging;
 
 import java.util.logging.Logger;
+import javax.annotation.Nullable;
 
 import net.kencochrane.raven.log4j2.SentryAppender;
 import org.apache.logging.log4j.LogManager;
@@ -10,15 +11,26 @@ import tc.oc.minecraft.logging.BetterRaven;
 import tc.oc.minecraft.logging.RavenConfiguration;
 
 public class RavenPlugin extends JavaPlugin {
-    private BetterRaven raven;
-    public BetterRaven getRaven() { return raven; }
 
     private RavenConfiguration configuration;
+
     private RavenConfiguration getRavenConfiguration() {
         if(configuration == null) {
             configuration = new BukkitRavenConfiguration(getConfig());
         }
         return configuration;
+    }
+
+    private BetterRaven raven;
+
+    public @Nullable BetterRaven getRaven() {
+        if(raven == null && getRavenConfiguration().enabled()) {
+            getLogger().info("Installing Raven");
+            buildRaven();
+            installBukkit();
+            installMojang();
+        }
+        return raven;
     }
 
     private void buildRaven() {
@@ -40,16 +52,6 @@ public class RavenPlugin extends JavaPlugin {
             ((org.apache.logging.log4j.core.Logger) mojangLogger).addAppender(appender);
         } else {
             this.getLogger().warning("Raven cannot integrate with Mojang logger with unexpected class " + mojangLogger.getClass());
-        }
-    }
-
-    @Override
-    public void onEnable() {
-        if(getRavenConfiguration().enabled()) {
-            getLogger().info("Installing Raven");
-            buildRaven();
-            installBukkit();
-            installMojang();
         }
     }
 }

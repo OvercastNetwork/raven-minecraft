@@ -3,3 +3,4 @@ version: 1.0
 description: Raven integration
 author: Overcast Network
 main: tc.oc.bukkit.logging.RavenPlugin
+isolate: true

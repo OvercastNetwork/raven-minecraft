@@ -7,7 +7,7 @@
     <groupId>tc.oc</groupId>
     <artifactId>raven-minecraft</artifactId>
     <packaging>pom</packaging>
-    <version>1.9-SNAPSHOT</version>
+    <version>1.11-SNAPSHOT</version>
 
     <modules>
         <module>raven-bukkit</module>

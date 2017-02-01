@@ -2,4 +2,4 @@ name: Raven
 version: 1.0
 description: Raven integration
 author: Overcast Network
-main: tc.oc.bungee.logging.RavenPlugin
+main: tc.oc.bungee.logging.BungeeRavenModule

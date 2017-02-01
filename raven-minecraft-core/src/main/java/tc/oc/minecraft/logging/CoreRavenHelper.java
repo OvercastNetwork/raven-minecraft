@@ -6,7 +6,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
 import net.kencochrane.raven.event.EventBuilder;
 
-public class CoreRavenHelper implements BetterRaven.Helper {
+class CoreRavenHelper implements BetterRaven.Helper {
 
     protected boolean isEligibleCulprit(StackTraceElement frame) {
         // Exclude common guard methods from being the culprit

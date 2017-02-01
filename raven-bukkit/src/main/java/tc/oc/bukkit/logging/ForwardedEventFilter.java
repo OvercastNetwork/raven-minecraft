@@ -6,7 +6,7 @@ import org.apache.logging.log4j.core.filter.AbstractFilter;
 /**
  * Deny log records forwarded from JUL to L4J by CraftBukkit
  */
-public class ForwardedEventFilter extends AbstractFilter {
+class ForwardedEventFilter extends AbstractFilter {
     private Result filter(StackTraceElement source) {
         if(source.getClassName().endsWith("ForwardLogHandler")) {
             return Result.DENY;

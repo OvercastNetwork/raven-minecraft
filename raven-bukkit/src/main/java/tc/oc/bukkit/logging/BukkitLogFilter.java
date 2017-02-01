@@ -3,7 +3,7 @@ package tc.oc.bukkit.logging;
 import java.util.logging.Filter;
 import java.util.logging.LogRecord;
 
-public class BukkitLogFilter implements Filter {
+class BukkitLogFilter implements Filter {
 
     @Override
     public boolean isLoggable(LogRecord record) {

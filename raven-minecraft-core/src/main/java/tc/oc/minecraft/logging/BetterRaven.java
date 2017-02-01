@@ -73,12 +73,9 @@ public class BetterRaven extends Raven {
 
     public BetterRaven(Factory factory) {
         this.factory = factory;
-        addBuilderHelper(new EventBuilderHelper() {
-            @Override
-            public void helpBuildingEvent(EventBuilder eventBuilder) {
-                for(Helper helper : helpers) {
-                    helper.helpBuildingEvent(eventBuilder, logRecord.get());
-                }
+        addBuilderHelper(eventBuilder -> {
+            for(Helper helper : helpers) {
+                helper.helpBuildingEvent(eventBuilder, logRecord.get());
             }
         });
     }

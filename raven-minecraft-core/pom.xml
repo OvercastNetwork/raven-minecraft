@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>tc.oc</groupId>
+            <artifactId>minecraft-api</artifactId>
+            <version>1.11-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>annotations</artifactId>
             <version>3.0.0</version>

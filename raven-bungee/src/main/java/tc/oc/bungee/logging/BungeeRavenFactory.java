@@ -1,20 +1,14 @@
 package tc.oc.bungee.logging;
 
-import net.md_5.bungee.api.ProxyServer;
-import tc.oc.bungee.BungeeVersionInspector;
+import net.kencochrane.raven.dsn.Dsn;
 import tc.oc.minecraft.logging.BetterRaven;
-import tc.oc.minecraft.logging.CoreRavenFactory;
-import tc.oc.minecraft.logging.RavenConfiguration;
+import tc.oc.minecraft.logging.MinecraftRavenFactory;
 
-public class BungeeRavenFactory extends CoreRavenFactory {
-
-    public BungeeRavenFactory() {
-        super(new BungeeVersionInspector(ProxyServer.getInstance()));
-    }
+public class BungeeRavenFactory extends MinecraftRavenFactory {
 
     @Override
-    public BetterRaven createRavenInstance(RavenConfiguration configuration) {
-        final BetterRaven raven = super.createRavenInstance(configuration);
+    public BetterRaven createRavenInstance(Dsn dsn) {
+        final BetterRaven raven = new BetterRaven.Factory().createRavenInstance(dsn);
         raven.addHelper(new BungeeRavenHelper());
         return raven;
     }

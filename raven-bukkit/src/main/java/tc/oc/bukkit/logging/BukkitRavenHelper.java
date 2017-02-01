@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Attaches all sorts of juicy Bukkit info to Sentry events
  */
-public class BukkitRavenHelper implements BetterRaven.Helper {
+class BukkitRavenHelper implements BetterRaven.Helper {
     @Override
     public void helpBuildingEvent(EventBuilder eventBuilder, @Nullable LogRecord record) {
         if(record != null) {

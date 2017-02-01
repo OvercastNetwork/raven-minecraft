@@ -65,6 +65,12 @@
                 <version>2.3</version>
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <artifactSet>
+                        <includes>
+                            <!-- Raven depends on this and does not shade it, so we have to -->
+                            <include>com.fasterxml.jackson.core:jackson-core</include>
+                        </includes>
+                    </artifactSet>
                 </configuration>
             </plugin>
 
